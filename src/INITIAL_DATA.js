@@ -1,4 +1,4 @@
-export const journalData = [
+export const INITIAL_DATA = [
 	{
 		title: 'Preparing to update courses',
 		text: 'Today I spent the whole day...',
