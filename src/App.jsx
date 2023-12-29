@@ -27,13 +27,15 @@ function App() {
 		}
 		return -1;
 	};
+
 	return (
 		<div className='app'>
 			<LeftPanel>
 				<Header />
 				<JournalAddButton />
 				<JournalList>
-					{items.sort(sortItems).map(el => (
+					{items.length === 0 && <p>There are no posts yet, add the first one.</p> }
+					{items.length > 0 && items.sort(sortItems).map(el => (
 						<CardButton key={el.id}>
 							<JournalItem
 								title={el.title}
