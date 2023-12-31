@@ -16,7 +16,7 @@ function App() {
 			text: item.text,
 			title: item.title,
 			date: new Date(item.date),
-			id: Math.max(...oldItems.map(i => i.id)) + 1
+			id: oldItems.length > 0 ? Math.max(...oldItems.map(i => i.id)) + 1 : 1
 		}]);
 	};
 
@@ -30,11 +30,6 @@ function App() {
 			<Body>
 				<JournalForm onSubmit={addItem}/>
 			</Body>
-			{/*<h1>Project</h1>*/}
-			{/*<p>React App</p>*/}
-
-
-
 
 		</div>
 	);
