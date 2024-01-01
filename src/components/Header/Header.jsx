@@ -2,12 +2,12 @@
 // import Logo from '../Logo/Logo';
 //
 // const logos = ['/logo.svg', '/vite.svg'];
-
+import styles from './Header.module.css';
 function Header() {
 
 	return (
 		<>
-			<img className='logo' src='logo.svg'/>
+			<img className={styles.logo} src='logo.svg'/>
 			{/*<Logo image={logos[0]} />*/}
 			{/*<SelectUser />*/}
 		</>
