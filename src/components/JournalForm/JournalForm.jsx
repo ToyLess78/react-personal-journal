@@ -26,30 +26,35 @@ export function JournalForm({onSubmit}) {
 	useEffect(() => {
 		if (isFormReadyToSubmit) {
 			onSubmit(values);
+			dispatchForm({type: 'CLEAR'});
 		}
 	}, [isFormReadyToSubmit]);
+
+	const onChange = (e) => {
+		dispatchForm({
+			type: 'SET_VALUE',
+			payload: {[e.target.name]: e.target.value}
+		});
+	};
 	const  addJournalItem = (event) => {
 		event.preventDefault();
-		const formData = new FormData(event.target);
-		const formProps = Object.fromEntries(formData);
-
-		dispatchForm({type: 'SUBMIT', payload: formProps});
+		dispatchForm({type: 'SUBMIT'});
 
 		
 	};
 	return(
 		<form className={styles['journal-form']} onSubmit={addJournalItem}>
 			<div>
-				<input type='text' name='title' className={cn(styles['input-title'], {
+				<input type='text' onChange={onChange} value={values.title} name='title' className={cn(styles['input-title'], {
 					[styles['invalid']]: !isValid.title
 				})}/>
 			</div>
 			<div className={styles['form-row']}>
-				<label htmlFor='date' className={styles['form-label']}>
+				<label htmlFor='date'  className={styles['form-label']}>
 					<img src='/calendar.svg' alt='Caleendar icon'/>
 					<span>Date</span>
 				</label>
-				<input type='date' name='date' id='date' className={cn(styles['input'], {
+				<input type='date' onChange={onChange} name='date' id='date' value={values.date} className={cn(styles['input'], {
 					[styles['invalid']]: !isValid.date
 				})} />
 			</div>
@@ -58,10 +63,10 @@ export function JournalForm({onSubmit}) {
 					<img src='/folder.svg' alt='Folder icon'/>
 					<span>Tag</span>
 				</label>
-				<input type='text' name='tag' id='tag' className={styles['input']}/>
+				<input type='text' onChange={onChange} name='tag' id='tag' value={values.tag} className={styles['input']}/>
 			</div>
 
-			<textarea name='post' id='' cols='30' rows='10' className={cn(styles['input'], {
+			<textarea name='post' onChange={onChange} id='' cols='30' rows='10' value={values.post} className={cn(styles['input'], {
 				[styles['invalid']]: !isValid.post
 			})}></textarea>
 			<Button text='Save' />
