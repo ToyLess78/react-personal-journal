@@ -7,8 +7,10 @@ import {JournalList} from './components/JournalList/JournalList.jsx';
 import {JournalAddButton} from './components/JournalAddButton/JournalAddButton.jsx';
 import {JournalForm} from './components/JournalForm/JournalForm.jsx';
 import {useEffect, useState} from 'react';
+import {INITIAL_DATA} from './INITIAL_DATA.js';
 
 function App() {
+	console.log(INITIAL_DATA);
 
 	const [items, setItems] = useState([]);
 
