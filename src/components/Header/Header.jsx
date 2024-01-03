@@ -1,10 +1,7 @@
-// import Logo from '../Logo/Logo';
-//
-// const logos = ['/logo.svg', '/vite.svg'];
-import styles from './Header.module.css';
 import SelectUser from '../SelectUser/SelectUser.jsx';
 import Button from '../Button/Button.jsx';
 import {useState} from 'react';
+import Logo from '../Logo/Logo.jsx';
 
 const logos = ['logo.svg', 'vite.svg'];
 function Header() {
@@ -15,8 +12,8 @@ function Header() {
 
 	return (
 		<>
-			<img className={styles.logo} src={logos[logoIndex]}/>
-			{/*<Logo image={logos[0]} />*/}
+
+			<Logo image={logos[logoIndex]} />
 			<SelectUser />
 			<Button onClick={toggleLogo}>Change Logo</Button>
 		</>
