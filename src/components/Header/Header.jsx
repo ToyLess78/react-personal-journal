@@ -4,9 +4,6 @@
 import styles from './Header.module.css';
 import SelectUser from '../SelectUser/SelectUser.jsx';
 function Header() {
-	// const changeUser = (e) => {
-	// 	console.log(e.target.value);
-	// };
 
 	return (
 		<>
