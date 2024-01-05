@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import styles from './SelectUser';
+import styles from './SelectUser.module.css';
 import {UserContext} from '../context/User.context.jsx';
 
 function SelectUser() {

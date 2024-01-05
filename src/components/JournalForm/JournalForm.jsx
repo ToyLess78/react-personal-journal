@@ -80,9 +80,9 @@ function JournalForm({ onSubmit, data, onDelete }) {
 	return (
 		<form className={styles['journal-form']} onSubmit={addJournalItem}>
 			<div className={styles['form-row']}>
-				<Input appearence="title" type='text' ref={titleRef} onChange={onChange} value={values.title} name='title' isValid={!isValid.title}/>
+				<Input appearence="title" type='text' ref={titleRef} onChange={onChange} value={values.title} name='title' isValid={isValid.title}/>
 				{data?.id && <button className={styles['delete']} type="button" onClick={deleteJournalItem}>
-					<img src="/archive.svg" alt="Delete button" />
+					<img src="/arhive.svg" alt="Delete button" />
 				</button>}
 			</div>
 			<div className={styles['form-row']}>
@@ -90,7 +90,7 @@ function JournalForm({ onSubmit, data, onDelete }) {
 					<img src='/calendar.svg' alt='Caleendar icon'/>
 					<span>Дата</span>
 				</label>
-				<Input type='date' ref={dateRef} onChange={onChange} name='date' value={values.date ? new Date(values.date).toISOString().slice(0, 10) : ''} id="date" isValid={!isValid.title}/>
+				<Input type='date' ref={dateRef} onChange={onChange} name='date' value={values.date ? new Date(values.date).toISOString().slice(0, 10) : ''} id="date" isValid={isValid.title}/>
 			</div>
 			<div className={styles['form-row']}>
 				<label htmlFor="tag" className={styles['form-label']}>
